@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: SAFARI Cheat Sheets
+Bundle-SymbolicName: com.ibm.watson.safari.cheatsheets; singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Activator: com.ibm.watson.safari.cheatsheets.CheatsheetsPlugin
+Bundle-Vendor: rfuhrer@watson.ibm.com
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.ui.cheatsheets,
+ org.eclipse.uide,
+ org.jikespg.uide
+Eclipse-AutoStart: true
