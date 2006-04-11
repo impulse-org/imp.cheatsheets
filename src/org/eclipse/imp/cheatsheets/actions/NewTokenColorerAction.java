@@ -9,7 +9,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.cheatsheets.ICheatSheetAction;
 import org.eclipse.ui.cheatsheets.ICheatSheetManager;
-import org.eclipse.uide.wizards.Wizards.NewTokenColorer;
+import org.eclipse.uide.wizards.NewTokenColorer;
 
 public class NewTokenColorerAction extends Action implements ICheatSheetAction {
     public NewTokenColorerAction() {

@@ -9,7 +9,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.cheatsheets.ICheatSheetAction;
 import org.eclipse.ui.cheatsheets.ICheatSheetManager;
-import org.eclipse.uide.wizards.Wizards.NewBuilder;
+import org.eclipse.uide.wizards.NewBuilder;
 
 public class NewBuilderAction extends Action implements ICheatSheetAction {
     public NewBuilderAction() {

@@ -9,7 +9,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.cheatsheets.ICheatSheetAction;
 import org.eclipse.ui.cheatsheets.ICheatSheetManager;
-import org.eclipse.uide.wizards.Wizards.NewLanguage;
+import org.eclipse.uide.wizards.NewLanguage;
 
 public class NewLanguageAction extends Action implements ICheatSheetAction {
     public NewLanguageAction() {
