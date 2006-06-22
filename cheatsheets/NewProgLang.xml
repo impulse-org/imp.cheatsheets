@@ -80,6 +80,8 @@ the lpg.jar file should be added to your language project's build path.<br/>
 
 </description>
 </item>
+
+
 <item title="Create a token colorer">
 <action pluginId="com.ibm.watson.safari.cheatsheets"
         class="com.ibm.watson.safari.cheatsheets.actions.NewTokenColorerAction"/>
@@ -120,14 +122,13 @@ The Outliner class only has one important method: the createOutlinePresentation(
 which typically retrieves the current AST from the IParseController and visits
 it to populate the outline tree with various TreeItems.
 Some example visit methods for the simple expression language are shown in the
-generated class.</bf>
+generated class.<br/>
 
 To add a program entity to the outline, simply override the visit method corresponding
 to that type of AST node and have the overriding mehtod call createSubItem() with an appropriate label.
 (The AbstractVisitor class contains default visit methods for all node types in
 the AST.  This class may be located in a separate AST package or--depending on
 parser-generator options--contained as a member class within the generated parser.)
-<br/>
 </description>
 </item>
 
