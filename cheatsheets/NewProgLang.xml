@@ -2,19 +2,41 @@
 <cheatsheet title="Creating a New SAFARI Programming Language using JikesPG">
 <intro>
 <description>
-This cheat sheet describes the basic process for creating a new SAFARI-supported
-programming language where the language parser is generated using JikesPG.
-The various steps entail the generation of extensions for capabilities such
-as text editing, outlining, token coloring, source folding, and project building.
-These extensions are represented by classes that reqiure some straightforward
-specialization by the user, depending on the particular language.
-<br/>
+This cheat sheet describes the basic process for creating a new SAFARI-based
+IDE for a specific programming language.
+It is assumed here that the language parser is generated using JikesPG (although this
+is not a requirement for SAFARI in general, and many of the comments given here
+will apply to languages with parsers based on other technologies).
+<br/><br/>
 
-Note:  The new language must be executed in an existing plugin project.
+SAFARI uses extensions to Eclipse to provide language-specific IDE capabilities
+such as text editing, token coloring, outlining, source folding, hyperlink detection,
+and project building.
+These extensions are implemented by SAFARI-provided or -generated classes that
+reqiure some customization by the user, usually relatively minor.
+The goal is to enable SAFARI users to focus on the language-dependent aspects
+of IDE capabilities that are of specific interest to them and to allow users
+to ignore, insofar as possible, the generic infrastructure hacking that
+is necessary to realize these capabilities in Eclipse.
+<br/><br/>
+
+<b>Notes:</b>
+<br/><br/>
+
+This cheat sheet describes a straight-line process that covers the creation
+of several language services.  Although the language description and parser
+are necessary for the implementation and execution of later services, the later
+services may actually be addressed in any order and may be skipped if not of
+interest.
+<br/><br/>
+
+The new IDE must be created in an existing plugin project.
 For now, the name of the project must match the name of the language to be
-created.  Thus you may want to create a new, language-specific plugin
+supported.  Thus you may want to create a new, language-specific plugin
 project before continuing through this cheat sheet.
-Also note that each SAFARI language has to be defined in a distinct project.
+<br/><br/>
+
+Each SAFARI IDE has to be defined in a distinct project.
 </description>
 </intro>
 
@@ -22,25 +44,30 @@ Also note that each SAFARI language has to be defined in a distinct project.
 <action pluginId="com.ibm.watson.safari.cheatsheets"
         class="com.ibm.watson.safari.cheatsheets.actions.NewLanguageAction"/>
 <description>
-Invoke "File" -&gt; "New" -&gt; "IDE Language Support" -&gt; "Programming Language".<br/>
+Invoke "File" -&gt; "New" -&gt; "IDE Language Support" -&gt; "Programming Language".
+<br/><br/>
 
 Enter (or browse to) the project in which you want to create your language.
 Fill out the "language" field with a unique name.
 Each language service implementation is associated with the language for which it is
 intended by means of this unique name.
-(Remember that for now the language and project names must be the same.)<br/>
+(Remember that for now the language and project names must be the same.)
+<br/><br/>
 
-Enter any user-readable text you like in the "description" field.<br/>
+Enter any user-readable text you like in the "description" field.
+<br/><br/>
 
 Enter a comma-separated list of file-name extensions in the "extensions" field
 (do not include dots).
 A file whose name has any of these extensions will be assumed to contain source code in the
 new programming language, and the language services defined for this language will
-become available to the developer while editing such files.<br/>
+become available to the developer while editing such files.
+<br/><br/>
 
-Hit "Finish" when done editing the various fields.<br/>
+Hit "Finish" when done editing the various fields.
+<br/><br/>
 
-A SAFARI language description extension will be created using the above information.<br/>
+A SAFARI language description extension will be created using the above information.
 </description>
 </item>
 
@@ -51,33 +78,37 @@ A SAFARI language description extension will be created using the above informat
         class="com.ibm.watson.safari.cheatsheets.actions.NewParserAction"/>
 <description>
 Invoke "File" -&gt; "New" -&gt; "IDE Language Support" -&gt; "Parser Services" -&gt;
-"JikesPG Grammar and Parser for UIDE".<br/>
+"JikesPG Grammar and Parser for UIDE".
+<br/><br/>
 
 Be sure that the proper names are entered into the project and language fields.
 As these values are entered, reasonable default values will be entered into other fields.
-<br/>
+<br/><br/>
 
 If you wish, edit the "id" field to specify a non-default extension ID for the
-parsing service.<br/>
+parsing service.
+<br/><br/>
 
 If you wish, edit the "name" field to specify a non-default name for the
 parsing service. This parameter is not presently used, but is intended to be
-the user-visible name for the parser.<br/>
+the user-visible name for the parser.
+<br/><br/>
 
 If you wish, edit the "class" field to specify a non-default fully-qualified
 name for the parse controller. This class is used to give access to the token
-stream, AST, and so on, to the various higher-level language services.<br/>
+stream, AST, and so on, to the various higher-level language services.
+<br/><br/>
 
 Hit "Finish" when done editing.  The JikesPG grammar file for your language will be
 open in the editor, and the structure of the file should appear in the "Outline"
 view.  The grammar file will contain some generally useful elements and some example
 entries for a simple expression language.  You will need to edit this file
 as apprpriate for your language.  (To acquire JikesPG--otherwise known as lpg--see
-http://sourceforge.net/projects/lpg.)<br/>
+http://sourceforge.net/projects/lpg.)
+<br/><br/>
 
 Note:  The generated parser classes will depend on lpg to compile, so
-the lpg.jar file should be added to your language project's build path.<br/>
-
+the lpg.jar file should be added to your language project's build path.
 </description>
 </item>
 
@@ -87,17 +118,20 @@ the lpg.jar file should be added to your language project's build path.<br/>
         class="com.ibm.watson.safari.cheatsheets.actions.NewTokenColorerAction"/>
 <description>
 Invoke "File" -&gt; "New" -&gt; "IDE Language Support" -&gt; "Editor Services" -&gt;
-"Token Colorer".<br/>
+"Token Colorer".
+<br/><br/>
 
 As before, assure that the names of your project and language have been entered
 into the appropriate fields.
-If desired, edit the remaining fields. Hit "Finish" when done.<br/>
+If desired, edit the remaining fields. Hit "Finish" when done.
+<br/><br/>
 
 You should see that the editor opens up the token colorer implementation.
 The token colorer class has two important methods: the constructor, in which
 a set of TextAttribute's are created (which are later used to specify the
 text presentation for the various token kinds), and the getColoring() method,
-which returns the TextAttribute to be used for the given token.<br/>
+which returns the TextAttribute to be used for the given token.
+<br/><br/>
 
 As you can see, getColoring() calls IToken.getKind() to determine the token
 kind (represented by an integer), and uses that to compute the correct text
@@ -112,17 +146,20 @@ and generally start with a prefix like "TK_".
         class="com.ibm.watson.safari.cheatsheets.actions.NewOutlinerAction"/>
 <description>
 Invoke "File" -&gt; "New" -&gt; "IDE Language Support" -&gt; "Editor Services" -&gt;
-"Outliner".<br/>
+"Outliner".
+<br/><br/>
 
 As before, enter the names of your project and language into the corresponding fields
-and, if desired, edit the remaining fields. Hit "Finish" when done.<br/>
+and, if desired, edit the remaining fields. Hit "Finish" when done.
+<br/><br/>
 
 The outliner implementation should open in the editor.
 The Outliner class only has one important method: the createOutlinePresentation(),
 which typically retrieves the current AST from the IParseController and visits
 it to populate the outline tree with various TreeItems.
 Some example visit methods for the simple expression language are shown in the
-generated class.<br/>
+generated class.
+<br/><br/>
 
 To add a program entity to the outline, simply override the visit method corresponding
 to that type of AST node and have the overriding mehtod call createSubItem() with an appropriate label.
@@ -133,49 +170,130 @@ parser-generator options--contained as a member class within the generated parse
 </item>
 
 
+<item title="Enable source-text folding">
+<action pluginId="com.ibm.watson.safari.cheatsheets"
+        class="com.ibm.watson.safari.cheatsheets.actions.NewFoldingUpdaterAction"/>
+<description>
+Invoke "File" -&gt; "New" -&gt; "IDE Language Support" -&gt; "Editor Services" -&gt;
+"Source folding updater".
+<br/><br/>
+
+As before, be sure that the name of your language project is correctly filled in.
+Additional fields will be filled in with default values on this basis.  If desired,
+edit any of these fields.  Hit "Finish" when done.
+<br/><br/>
+
+The FoldingUpdater implementation should open in the editor.  Folding is achieved
+by associating ProjectionAnnotations with regions of source text that are to be foldable.
+The default implementation given here uses a visitor to walk the AST for the source
+document; visit methods for various node types are presumed to create the annotations.
+No visit methods are automatically generated; you will need to define a visit
+method for each node type for which the source text is to be foldable.
+<br/><br/>
+
+The basic implementation of these visit methods is simple.  It is only necessary to call
+the provided method makeAnnotation(..) and then return true or false depending
+on whether children of the given node are to be visited.
+(An example in the generated class shows this for a presumed AST node type that
+represents blocks.)
+The method makeAnnotation(..) assumes that the given node type is one that has been
+generated by JikesPG.  If your AST node types have been created in some other way
+then it may be necessary for you to revise the implementation of makeAnnotation(..).
+<br/><br/>
+
+You will also need to devise your own implementations of visit(..) or makeAnnotation(..)
+if you want regions of foldable text that do not correspond exactly to the extent of an
+AST node.
+</description>
+</item>
+
+
+<item title="Enable hyperlink detection">
+<action pluginId="com.ibm.watson.safari.cheatsheets"
+        class="com.ibm.watson.safari.cheatsheets.actions.NewHyperlinkDetectorAction"/>
+<description>
+Invoke "File" -&gt; "New" -&gt; "IDE Language Support" -&gt; "Editor Services" -&gt;
+"Hyperlink Detector".
+<br/><br/>
+
+As before, be sure that the name of your language project is correctly filled in.
+Additional fields will be filled in with default values on this basis.  If desired,
+edit any of these fields.  Hit "Finish" when done.
+<br/><br/>
+
+The two classes that implement hyperlink detection should come up in the editor.
+One is the hyperlink detector itself, the other is a "reference resolver."
+The hyperlink detector is largely language independent and should not usually
+need to be edited.  It makes use of the reference resolver, which is language
+specific and which may require a substantial amount of programming.
+<br/><br/>
+
+Your language-specific reference resolver extends a language-indepedent abstract
+class that provides basic implementations for most of the functions needed by
+the hyperlink detector.  There are two main functions that need to be implemented
+by your language-specific reference resolver.  One is getLinkTarget(Object, IParseController),
+which finds the target node for a given source node.  The other is getLinkText(Object),
+which gets the text to be associated with a link from a given node.  If this information
+has already been computed, e.g., by a compiler for your language, then these methods may
+simply need to retrieve it.  If the information has not been previously computed,
+then these methods may have to perform some fairly complex calculations.
+<br/><br/>
+
+There are additional opportunities for customization of reference resolution related
+to predetermination or filtering of types that may serve as the sources for hyperlinks.
+Additional comments about these are found in the classes involved.
+</description>
+</item>
+
+
 <item title="Create a builder">
 <action pluginId="com.ibm.watson.safari.cheatsheets"
         class="com.ibm.watson.safari.cheatsheets.actions.NewBuilderAction"/>
 <description>
 Invoke "File" -&gt; "New" -&gt; "IDE Language Support" -&gt; "Core Services" -&gt;
-"Incremental Builder".<br/>
+"Incremental Builder".
+<br/><br/>
 
 As before, assure that the names of your project and language are entered in
-the proper fields and, if desired, edit the remaining fields. Hit "Finish" when done.<br/>
+the proper fields and, if desired, edit the remaining fields. Hit "Finish" when done.
+<br/><br/>
 
 Although it is not necessary to define a nature to which your builder will be
 associated, this is a fairly common practice.  If the values for "hasNature" and
-"isConfigurable" are left blank then they are treated as if false.<br/>
+"isConfigurable" are left blank then they are treated as if false.
+<br/><br/>
 
 Although the parameter "name" and "value" fields are required here, they need to be
 given meaningful values only if your builder will make use of external information
-(which is not necessary for many builders).<br/>
+(which is not necessary for many builders).<br/><br/>
 
-The IncrementalProjectBuilder implementation should open up in the editor.<br/>
+The IncrementalProjectBuilder implementation should open up in the editor.
+<br/><br/>
 
 The skeleton builder overrides or implements several methods (defined in its abstract
-parent class SAFARIBuilderBase):<br/>
+parent class SAFARIBuilderBase):<br/><br/>
  - getErrorMarker()<br/>
  - getInfoMarker()<br/>
  - getWarningMarker()<br/>
  - getPlugin()<br/>
  - isSourceFile()<br/>
  - isOutputFolder()<br/>
- - compile()<br/>
+ - compile()<br/><br/>
 
 Many of these will do reasonable things "out of the box". You will undoubtedly need to
 edit compile() to actually call out to your compiler in some fashion, retrieve the
 diagnostic messages and turn them into markers in the "Problems" view. If your
 compiler runs in an external process, or uses java.io to create output files, you'll
 also need to call IResource.refresh() on the folder that contains all the generated
-output files (assuming that it is somewhere in your workspace).<br/>
+output files (assuming that it is somewhere in your workspace).
+<br/><br/>
 
 Note:  You may need to define an implementation of IMessageHandler, so that the builder
 can provide a message handler to the compiler, which the compiler can then use to call
 back to the builder to report error messages.
-
 </description>
 </item>
+
 
 <item title="To use your new language ...">
 <description>
