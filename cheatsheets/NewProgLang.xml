@@ -31,12 +31,24 @@ interest.
 <br/><br/>
 
 The new IDE must be created in an existing plugin project.
-For now, the name of the project must match the name of the language to be
-supported.  Thus you may want to create a new, language-specific plugin
+Thus, you may want to create a new, language-specific plugin
 project before continuing through this cheat sheet.
+Each SAFARI IDE has to be defined in a distinct project.
 <br/><br/>
 
-Each SAFARI IDE has to be defined in a distinct project.
+A note about plugin classes:  When you use the Eclipse New Project wizard to create a
+new plugin project, the wizard creates a package with the name of the project, and in that
+package the wizard creates a plugin class with a name of the form "ProjectNamePlugin.java."
+The Safari New Programming Language wizard likewise creates a new package and plugin class,
+but named based on the programming language rather than on the project.
+If you use the default values in each wizard, you can end up with two plugin classes,
+each in a different package.
+There are two ways to avoid this.  One is just to give your project and language the same name.
+The other is, during plugin-project creation, to override the default values and give your plugin
+class and package a name that matches that of your language.
+<br/><br/>
+
+
 </description>
 </intro>
 
@@ -51,7 +63,6 @@ Enter (or browse to) the project in which you want to create your language.
 Fill out the "language" field with a unique name.
 Each language service implementation is associated with the language for which it is
 intended by means of this unique name.
-(Remember that for now the language and project names must be the same.)
 <br/><br/>
 
 Enter any user-readable text you like in the "description" field.
