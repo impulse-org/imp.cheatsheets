@@ -37,8 +37,8 @@ Each SAFARI IDE has to be defined in a distinct project.
 <br/><br/>
 
 A note about plugin classes:  When you use the Eclipse New Project wizard to create a
-new plugin project, the wizard creates a package with the name of the project, and in that
-package the wizard creates a plugin class with a name of the form "ProjectNamePlugin.java."
+new plugin project, the wizard creates a package with the name of the project.
+In that package the wizard creates a plugin class with a name of the form "&lt;ProjectName&gt;Plugin.java."
 The Safari New Programming Language wizard likewise creates a new package and plugin class,
 but named based on the programming language rather than on the project.
 If you use the default values in each wizard, you can end up with two plugin classes,
