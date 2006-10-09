@@ -221,7 +221,7 @@ AST node.
 
 <item title="Enable hyperlink detection">
 <action pluginId="com.ibm.watson.safari.cheatsheets"
-        class="com.ibm.watson.safari.cheatsheets.actions.NewHyperlinkDetectorAction"/>
+        class="com.ibm.watson.safari.cheatsheets.actions.NewReferenceResolverAction"/>
 <description>
 Invoke "File" -&gt; "New" -&gt; "IDE Language Support" -&gt; "Editor Services" -&gt;
 "Hyperlink Detector".
@@ -232,11 +232,14 @@ Additional fields will be filled in with default values on this basis.  If desir
 edit any of these fields.  Hit "Finish" when done.
 <br/><br/>
 
-The two classes that implement hyperlink detection should come up in the editor.
-One is the hyperlink detector itself, the other is a "reference resolver."
-The hyperlink detector is largely language independent and should not usually
-need to be edited.  It makes use of the reference resolver, which is language
-specific and which may require a substantial amount of programming.
+The main class that implements the language-specific behavior for hyperlink
+detection is the "reference resolver", and should come up in the editor.
+For any AST node representing a program entity reference, the reference resolver
+produces the AST node defining the entity to which it refers. In general, to
+handle cross-compilation unit references, the AST node representing an entity
+definition will have to identify both the owning compilation unit and the entity
+within that compilation unit. The design of such a data structure is quite language-
+specific, and is outside the scope of this tutorial.
 <br/><br/>
 
 Your language-specific reference resolver extends a language-indepedent abstract

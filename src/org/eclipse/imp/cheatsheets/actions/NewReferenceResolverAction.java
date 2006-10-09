@@ -9,21 +9,21 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.cheatsheets.ICheatSheetAction;
 import org.eclipse.ui.cheatsheets.ICheatSheetManager;
-import org.eclipse.uide.wizards.NewHyperlinkDetector;
+import org.eclipse.uide.wizards.NewReferenceResolver;
 
-public class NewHyperlinkDetectorAction extends Action implements ICheatSheetAction {
-    public NewHyperlinkDetectorAction() {
-    	this("Enable hyperlinking");
+public class NewReferenceResolverAction extends Action implements ICheatSheetAction {
+    public NewReferenceResolverAction() {
+    	this("Create new reference resolver");
     }
 
-    public NewHyperlinkDetectorAction(String text) {
+    public NewReferenceResolverAction(String text) {
     	super(text, null);
     }
 
     public void run(String[] params, ICheatSheetManager manager) {
-    	NewHyperlinkDetector newHyperlinkDetectorWizard = new NewHyperlinkDetector();
+    	NewReferenceResolver newReferenceResolverWizard = new NewReferenceResolver();
     	Shell shell= PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
-    	WizardDialog wizDialog= new WizardDialog(shell, newHyperlinkDetectorWizard);
+    	WizardDialog wizDialog= new WizardDialog(shell, newReferenceResolverWizard);
 
     	wizDialog.open();
     }
