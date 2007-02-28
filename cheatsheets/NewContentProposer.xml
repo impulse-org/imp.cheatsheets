@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cheatsheet title="Creating a Content-Proposer (Content-Assist) Service for new SAFARI IDE">
+<intro>
+<description>
+The content-proposal service (also known as "content assist") is intended to work in a SAFARI editor
+similarly to the way as it works in the Ecipse JDT Java editor:
+with the cursor position within or at the end of a word (keyword or identifier),
+typing control-space will bring up a list of proposals for completing the word,
+possibly including complex expressions or commands, consistent with the prefix of the word
+up to the point of the cursor and consistent with the syntax and semantics of the program at that point.
+Of course, content assist in the JDT Java editor is quite sophisticated.
+The functionality of this service in a SAFARI editor depends on how the service is implemented
+for the language of the editor.
+<br/><br/>
+
+The content-proposal service will typically depend on the reference-resolution service,
+so this step should not usually be performed until after the reference-resolution service
+is available.
+<br/><br/>
+
+</description>
+</intro>
+
+<item title="Create a content-assist service">
+<action pluginId="com.ibm.watson.safari.cheatsheets"
+        class="com.ibm.watson.safari.cheatsheets.actions.NewContentProposerAction"/>
+<description>
+
+The SAFARI wizard to generate a content-proposal service is called "NewContentProposer" and is run by invoking<br/><br/>
+"File" -> "New" -> "IDE Language Support" -> "Editor Services" -> "Content proposer"<br/><br/>
+
+As with previous wizards, when you run this one, be sure that the name of the project and language are correct,
+edit the name of the implementation package and class as needed, and nit "Finish" when done.
+<br/><br/>
+
+The generated implementation skeleton for this service contains code that works for the simple expression language
+that is used for examples with other services.
+The main method to be implemented by SAFARI users is getContentProposals(..), which takes a parse controller and an
+offset and returns an array of completion proposals.
+The parse controller provides access to the parse tree withiin which proposals are sought,
+and the offset indicates the point within the source file at which proposals are sought.
+The basic logic of the example implementation is simple:
+first get the token that covers the offset in the source file and the prefix in that token up to the offset;
+then get the AST node that corresponds to that token; then, if the node is of an appropriate type,
+gather and return the completion proposals for the prefix at that node.
+To that depth, the logic is largely language-independent.
+<br/><br/>
+
+Gathering the completion proposals will usually be much more language specific.
+In the generated example, the focus is on variables; variables that are visible at the offset point are considered,
+and completion proposals are constructed for those variables with identifiers that match the prefix under consideration.
+Implementation for the content proposal service will generally have to address the kind of entities for which proposals
+are generated (e.g., variables?  key words?), the kind of proposals that are returned (e.g., just identifiers or more
+complex constructs), and the semantics involved in the gathering of prospective proposals (e.g., visibility rules).
+<br/><br/>
+
+</description>
+</item>
+
+</cheatsheet>

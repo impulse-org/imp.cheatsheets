@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cheatsheet title="Creating a Text-Folding Updater for a new SAFARI IDE">
+<intro>
+<description>
+The goal of this step is to create a service that supports the folding of hierarchical syntactic elements in text editors for the language.
+As for most SAFARi services, the SAFARI wizard for text folding creates a skeleton class that contains the generic structure to support text
+folding and this class must be tailored to the specifics of the language being defined.
+<br/><br/>
+
+This step must be performed after the grammar and parsing service have been defined,
+but it can be performed in any order with respect to the generation of other IDE services.
+<br/><br/>
+
+</description>
+</intro>
+
+<item title="Create a folding updater">
+<action pluginId="com.ibm.watson.safari.cheatsheets"
+        class="com.ibm.watson.safari.cheatsheets.actions.NewFoldingUpdaterAction"/>
+<description>
+
+ The SAFARI wizard that does this is called “NewFoldingUpdater.”  To run this wizard, invoke<br/><br/>
+
+"File" -> "New" -> "IDE Language Support" -> "Editor Services" -> "Source folding updater"<br/><br/>
+
+As before, in the wizard assure that the names of the project and language are correct and, if desired,
+edit the package and class name for the implementation. Hit "Finish" when done.
+<br/><br/>
+
+The NewFoldingUpdater wizard creates a safari.foldingUpdater package containing a FoldingUpdater class.
+The wizard also adds a folding updater extension to the plugin.xml file for the language project and opens the FoldingUpdater class in an editor.
+<br/><br/>
+
+FoldingUpdater contains one main method, updateFoldingStructure(..).  This method obtains the current AST
+and sends it a new FoldingVisitor, which is implemented in the FoldingUpdater and extends AbstractVisitor.
+The visitor should contain a visit method for each AST node type for which folding is desired.
+Each visit method should simply call AbstractVisitor.makeAnnotation(..) with its given node.
+The method makeAnnotation makes an annotation that spans the text represented by the node,
+and it is through the annotations that folding is enabled.
+The language-specific customizations required for folding are simply to provide visit(..)
+methods for the AST node types for which text is to be foldable.
+These visit(..) methods should return true if folding should be allowed for nested units and false if not.
+It may be necessary to add more complicated logic if more precise control of folding is desired, for example,
+if you wish to enable folding of top-level blocks but not nested blocks.
+<br/><br/>
+
+Note:  The NewFoldingUpdater wizard requires the package and class names for the language AST node type.
+The wizard currently assumes that the AST node type has the default name and is located in the default package.
+If these assumptions are not valid, then incorrect names for this package and class will be entered into the generated FoldingUpdater class.
+If that happens, the class should be edited to fill in the correct names.
+<br/><br/>	
+
+</description>
+</item>
+
+
+</cheatsheet>

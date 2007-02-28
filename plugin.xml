@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>	
 <?eclipse version="3.0"?>
 <plugin>
    <extension
@@ -10,12 +10,102 @@
          id="com.ibm.safari">
       </category>
       <cheatsheet
-         name="New Programming Language"
+         name="A) An Overview"
+         category="com.ibm.safari"
+         id="com.ibm.watson.safari.cheatSheets.overview"
+         contentFile="cheatsheets/AnOverview.xml">
+         <description>
+           An overivew of the process of creating a new SAFARI IDE for a particular programming language.
+         </description>
+      </cheatsheet>
+      <cheatsheet
+         name="Z) New SAFARI IDE"
          category="com.ibm.safari"
          id="com.ibm.watson.safari.cheatSheets.language"
          contentFile="cheatsheets/NewProgLang.xml">
          <description>
-           Create IDE support for a new programming language.
+           Creating a new IDE for a programming language.  This cheat sheet provides an overview of the process, including several steps, but it is now somewhat outdated.
+         </description>
+      </cheatsheet>
+      <cheatsheet
+         name="B) New Programming Language"
+         category="com.ibm.safari"
+         id="com.ibm.watson.safari.cheatSheets.languageDescriptor"
+         contentFile="cheatsheets/NewProgrammingLanguage.xml">
+         <description>
+           Creating a programming language descriptor for a new SAFARI IDE 
+         </description>
+      </cheatsheet>
+      <cheatsheet
+         name="C) New Grammar, Lexer, and Parser"
+         category="com.ibm.safari"
+         id="com.ibm.watson.safari.cheatSheets.grammarLexerParser"
+         contentFile="cheatsheets/NewGrammarAndParser.xml">
+         <description>
+           Creating a grammar, lexer, and parser for the language of a new SAFARI IDE 
+         </description>
+      </cheatsheet>
+      <cheatsheet
+         name="D) New Token Colorer"
+         category="com.ibm.safari"
+         id="com.ibm.watson.safari.cheatSheets.tokenColorer"
+         contentFile="cheatsheets/NewTokenColorer.xml">
+         <description>
+           Creating a token-coloring service, to color (and otherwise attribute) the text associated with different token types when it appears in the IDE editor
+         </description>
+      </cheatsheet>
+      <cheatsheet
+         name="E) New Outliner"
+         category="com.ibm.safari"
+         id="com.ibm.watson.safari.cheatSheets.outliner"
+         contentFile="cheatsheets/NewOutliner.xml">
+         <description>
+           Creating an outlining service that will provide an outline view of the source text in the IDE editor
+         </description>
+      </cheatsheet>
+      <cheatsheet
+         name="F) New Folding Updater"
+         category="com.ibm.safari"
+         id="com.ibm.watson.safari.cheatSheets.foldingUpdater"
+         contentFile="cheatsheets/NewFoldingUpdater.xml">
+         <description>
+           Creating an text-folding service that will support folding of source text in the IDE editor
+         </description>
+      </cheatsheet>
+      <cheatsheet
+         name="G) New Reference Resolver and Hyperlinker"
+         category="com.ibm.safari"
+         id="com.ibm.watson.safari.cheatSheets.referenceResolverAndHyperlinker"
+         contentFile="cheatsheets/NewReferenceResolverAndHyperlinker.xml">
+         <description>
+           Creating a reference-resolution service that will automatically enable hyperlinking within source text in an IDE editor
+         </description>
+      </cheatsheet>
+      <cheatsheet
+         name="H) New Content Proposer"
+         category="com.ibm.safari"
+         id="com.ibm.watson.safari.cheatSheets.contentProposer"
+         contentFile="cheatsheets/NewContentProposer.xml">
+         <description>
+           Creating a content proposal (content assist) service for source text in an IDE editor
+         </description>
+      </cheatsheet>
+      <cheatsheet
+         name="I) New Builder and Nature Enabler"
+         category="com.ibm.safari"
+         id="com.ibm.watson.safari.cheatSheets.builderAndNatureEnabler"
+         contentFile="cheatsheets/NewBuilderAndNatureEnabler.xml">
+         <description>
+           Creating a bulder for source files in the language of your IDE and adding a utility to facilitate the association of the language nature to development projects
+         </description>
+      </cheatsheet>
+      <cheatsheet
+         name="J) New Preference Service and Pages"
+         category="com.ibm.safari"
+         id="com.ibm.watson.safari.cheatSheets.preferenceServiceAndPages"
+         contentFile="cheatsheets/NewPreferenceServiceAndPages.xml">
+         <description>
+           Creating a preference service and page for your new SAFARI IDE
          </description>
       </cheatsheet>
    </extension>

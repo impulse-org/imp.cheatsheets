@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cheatsheet title="Creating a Reference Resolver and Hyperlinking Service for a new SAFARI IDE">
+<intro>
+<description>
+The goal of this step is to create an implementation for a reference resolution service.
+This service is not apparent to users, but it enables a user-visible hyperlinking service
+(that is implemented by a SAFARI library class and is automatically available once reference reslution
+is supported), and it contributes to the implementation of a user-visible content-assist service.
+<br/><br/>
+
+This step must be performed after the grammar and parsing service have been defined.
+It can be performed in any order with respect to the generation of many of the other IDE services
+(such as token coloring, outlining, and folding), but it must be performed before the generation
+of other services that depend on reference resolution (such as content assist).
+<br/><br/>
+
+</description>
+</intro>
+
+<item title="Create a reference resolver">
+<action pluginId="com.ibm.watson.safari.cheatsheets"
+        class="com.ibm.watson.safari.cheatsheets.actions.NewReferenceResolverAction"/>
+<description>
+The SAFARI wizard to generate the reference resolver is called "NewReferenceResolver" and is run by invoking<br/><br/>
+
+"File" -> "New" -> "IDE Language Support" -> "Editor Services" -> "Reference Resolver"<br/><br/>
+
+As with similar wizards, when you run this one, be sure that the name of the project and language are correct,
+and edit the name of the implementation package and class as needed.  Hit "Finish" when done.
+<br/><br/>
+
+The wizard by default generates a referenceReslovers package with a ReferenceResolver class.
+The principal methods to be implemented are getLinkTarget(node) and getLinkText(node).
+The user can also implement methods that will perform filtering on given link source nodes to eliminate nodes
+that aren't appropriate in that role.
+<br/><br/>
+
+Example implementations are provided in the generated class that work with the simple expression language
+used for examples in the other services.
+For getLinkTarget(..), the basic logic is to return null for any given node that cannot be a link source,
+and for a node that can serve as a link sorce, to build a structure of the scopes and declarations of the
+program (using an AST visitor), then to return the declaration of the given source as found in that structure.
+Of course, in general, the details of reference resolution are langauge specific, and the amount of programming
+required to complete the ReferenceResolver may depend on the functionality provided by avaliable language tools such as a compiler.
+If available language tools already support reference resolution, then the ReferenceResolver may just need to retrieve
+the relevant information from these tools.
+On the other hand, if the available language tools do not support reference resolution, then the ReferenceResolver
+may need to encode the logic necessary to perform resolution.
+<br/><br/>
+
+Once reference resolution is implemented, hyperlinking is automatically enabled in the language editor.
+The hyperlinking service is implemented by a SAFARI library class and only depends on the ReferenceResolver to become functional.
+Hyperlinking in a SAFARI editor works as it does in an Eclipse JDT Java editor, by control-clicking on a suitable link target.
+<br/><br/>
+
+Note:  The as with the NewFoldingUpdater wizard, the NewRererenceResolver wizard needs the name of the package that contains
+AST node types.  If the value provided by default is not valid, then the class should be edited to fill in the correct name. 
+<br/><br/>
+
+</description>
+</item>
+
+
+</cheatsheet>

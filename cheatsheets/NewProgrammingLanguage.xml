@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cheatsheet title="Creating a Programming-Language Description for a new SAFARI IDE">
+<intro>
+<description>
+This cheat sheet describes the process of creating a language descriptor
+for a new SAFARI IDE.
+This is the required first step in SAFARI-IDE creation.
+<br/><br/>
+
+
+<b>Notes:</b>
+<br/><br/>
+
+A SAFARI IDE must be created in a plugin project, and
+each SAFARI IDE must be created in a distinct project.
+If you don't have a distinct plugin project for your new IDE then
+you may want to create one before continuing through this cheat sheet.
+<br/><br/>
+
+A note about plugin classes:  When you use the Eclipse New Project wizard to create a
+new plugin project, the wizard creates a package with the name of the project.
+In that package the wizard creates a plugin class with a name of the form "&lt;ProjectName&gt;Plugin.java."
+The Safari New Programming Language wizard likewise creates a new package and plugin class,
+but named based on the programming language rather than on the project.
+If you use the default values in each wizard, you can end up with two plugin classes,
+each in a different package.
+<br/><br/>
+
+There are two ways to avoid this.  One is just to give your project and language the same name.
+The other is, during plugin-project creation, to override the default values and give your plugin
+class and package a name that matches that of your language.
+<br/><br/>
+
+
+</description>
+</intro>
+
+<item title="Create a language description">
+<action pluginId="com.ibm.watson.safari.cheatsheets"
+        class="com.ibm.watson.safari.cheatsheets.actions.NewLanguageAction"/>
+<description>
+Invoke "File" -&gt; "New" -&gt; "IDE Language Support" -&gt; "Programming Language".
+<br/><br/>
+
+In the "Programming Language" wizard, you must provide information for the following required fields:<br/><br/>
+    * Project:  Browse to or type-in the name of your language project<br/><br/>
+    * Language:  Enter the name of the language (which for now must be the same as the name of the project).
+    This is the canonical name for your language, by which it will be identified to various SAFARI services.
+    Within SAFARI it is case-insensitive.<br/><br/>
+    * Description:  The “description” field is for the entry of a user-readable, user-sensible description of the language.
+    Enter whatever description you think is appropriate.<br/><br/>
+    * Extensions:  The “extensions” field is for the entry of file-name extensions that may be used for source files in the language.
+    Enter a non-empty, comma-separated list of extensions (omitting dots, and without spaces).
+    The SAFARI services defined for your language will be available for files with these extensions.
+<br/><br/><br/>
+
+You may also provide information in the following optional fields:<br/><br/>
+    * Synonyms:  This is a comma-separated list of alternative names for your language<br/><br/>
+    * DerivedFrom:  The “derivedFrom” field should be the canonical name of the programming language,
+    if any, from which the new language is derived.  The "derived from" language, if any, should be one
+    for which there is already a SAFARI IDE.
+    It is used within SAFARI for determining inheritance relationships when locating language services
+    for a given language (for example, locating an appropriate editor if none is defined specifically for your language).
+    If your language is derived from another SAFARI-supported language then this field should be filled in accordingly.
+    If your language is not derived from another SAFARI-supported language then this field should be ignored.<br/><br/>
+    * Icon:  This should be the project-relative pathname of an icon that can be used in graphical interfaces
+    to mark files in your language.<br/><br/>
+    * URL:  This is intended for the URL of a web page that contains information about your language.<br/><br/>
+    * Validator:  The “validator” field can be given the fully-qualified name of a class that can determine
+    whether a given input file actually contains text in the given programming language.
+    This class must extend the LanguageValidator class.
+<br/><br/><br/>
+
+Hit “Finish” when you are done editing the various fields in the wizard.
+A SAFARI language description extension will be created using the above information and added to the project’s plugin.xml file.
+This step also updates the projects Plugin class (to extend SAFARIPluginBase, among other modifications),
+or it will create a Plugin class if one does not exist.
+<br/><br/>
+
+(In earlier versions of SAFARI, this wizard also generates a "preferences" package and some preferences-related classes.
+In later versions this feature will probably be eliminated as a separate wizard has been provided for generating a preferences
+service and preference pages.)
+<br/>
+
+
+</description>
+</item>
+
+
+
+</cheatsheet>

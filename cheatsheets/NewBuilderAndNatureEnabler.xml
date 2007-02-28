@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cheatsheet title="Creating a Builder and Associated Nature Enabler for a new SAFARI IDE">
+<intro>
+<description>
+The first goal of this step is to create a builder for the language.
+Builders perform activities like generation or compilation for files in a particular source language.
+Builders in Eclipse are associated with projects in a many-to-many relationship.
+When a project is built, the various builders for the project are invoked,
+and each builder performs its respective build action on files in the project that have the appropriate type.
+The SAFARI New Builder wizard generates a Builder class that must be customized to perform the desired language-specific build activity.
+<br/><br/>
+
+The New Builder wizard also generates a nature class that corresponds to the builder.
+Associating a nature to a project is one way to associate builders to a project.
+The association of builders or natures to a project can be done manually, but SAFARI also provides
+a Nature Enabler wizard that facilitates this task.
+The Nature Enabler wizard creates a menu item and action for project context menus.
+Once the Nature Enabler wizard has been run, when you right-click on a development project in your
+SAFARI IDE, you can automatically associate the nature for the language to the project
+and thus enable the automatic building of source files in the language.
+<br/><br/>
+
+The Nature Enabler wizard is not required but the service it provides is a convenience.
+Naturally, the Nature Enabler wizard must be run after the New Builder wizard.
+<br/><br/>
+
+</description>
+</intro>
+
+<item title="Create a builder">
+<action pluginId="com.ibm.watson.safari.cheatsheets"
+        class="com.ibm.watson.safari.cheatsheets.actions.NewBuilderAction"/>
+<description>
+
+To invoke the NewBuilder wizard, select<br/><br/>  
+"File" -> "New" -> "IDE Language Support" -> "Core Services" -> "Incremental Builder"
+<br/><br/>
+
+In the wizard:<br/><br/>
+    * Assure that the names of the project and language are entered correctly.<br/><br/>
+    * This wizard requires that an id be provided for the builder extension and also allows
+    for the provision of a human-friendly name for the builder extension.
+    The id is needed because a plugin may have multiple builders and these need to be distinguishable.<br/><br/>
+    * Although it is not necessary to define a nature to which your builder will be associated, this is a fairly common practice.
+    Whether a builder is configurable depends on the design of the particular builder.
+    If the values for "hasNature" and "isConfigurable" are left blank then they are treated as if false.<br/><br/>
+    * Edit the class field as necessary to specify the desired package and class name for the implementation.<br/><br/>
+    * The "name" and "value" fields represent a parameter that may be used to pass external information to the builder.
+    The "run" element of the builders schema in org.eclipse.core.resources allows a builder to have some number of parameter
+    elements (0 or more); in each parameter element, the name and value are required.
+    As a simplification, the SAFARI NewBuilder wizard provides exactly one parameter element.
+    Since the name and value field are required, some values must be filled in here, but these values can be ignored
+    by the builder if none are actually needed.  (We expect to make the New Builder wizard more flexible in this regard in the future.)<br/><br/>
+    * Finally, if your language has a translation into Java, and you want to use a Java debugger on it,
+    check the checkbox "Add SMAP support" if you want to provide source-line mapping between source in your language and its Java representation.<br/><br/>
+    * Hit "Finish" when done.<br/><br/>
+The NewBuilder wizard generates one package, two classes, and three plug-in extensions.
+<br/><br/>
+
+The package that is generated is the “safari.builders” package.
+It contains the two generated classes, a “Builder” class and a “Nature” class.
+The new extensions are a builder extension (extending org.eclipse.core.resources.builders), a nature extension
+(extending org.eclipse.core.resources.natures), and a problem-marker extension (extending org.eclipse.core.resources.markers).
+All of these classes and extensions are created regardless of the values provided to the wizard (in particular,
+regardless of whether "hasNature" is true or false).
+The problem marker defines a type of marker annotation that the builder can attach to source files to represent problems
+encountered when building the files.
+<br/><br/>
+
+The Builder class is a skeleton that overrides or implements several methods defined in its abstract parent class, SAFARIBuilderBase:<br/><br/>
+    *  getErrorMarker(..)<br/>
+    *  getInfoMarker(..)<br/>
+    *  getWarningMarker(..)<br/>
+    *  getPlugin(..)<br/>
+    *  isSourceFile(..)<br/>
+    *  isNonRootSourceFile(..)<br/>
+    *  isOutputFolder(..)<br/>
+    *  compile(..)<br/>
+Most of these methods as generated will do reasonable things (although you may tailor any of them if you find a need to do so).
+<br/><br/>
+
+The method isNonRootSourceFile(..) is used to identify files (like C/C++ ".h" files or JikesPG ".gi" files)
+that should not be compiled directly but that should nevertheless be processed for dependencies.
+<br/><br/>
+
+In any case you will have to edit the compile(..) method, which is really the main “build” method.
+This will have to call your “compiler” in an appropriate way for a given source file, retrieve any diagnostic messages
+that result from the building, and create problem markers for those.
+If your build activity runs in an external process, or uses java.io to create output files, you will also need to call
+IResource.refresh() on any folders that contain generated output files (assuming that they are somewhere in your workspace).
+<br/><br/>
+
+SAFARI defines an interface, IMessageHandler (org.eclipse.uide.editor.IMessageHandler), to facilitate the reporting of error
+(and other) messages from compilers (or other builders) to interested services.
+SAFARI also provides an implementation of this interface, MarkerCreator (org.eclipse.uide.builder),
+that creates marker annotations for messages received and attaches those to a given source file. 
+<br/><br/>
+
+The Nature class extends org.eclipse.uide.core.ProjectNatureBase and provides some simple method implementations and stubs.
+These can be used as-is without further modification unless more sophisticated control over building is required for the nature.
+(With a new nature this is not likely to be true initially.)
+<br/><br/>
+
+The builder extension will be generated to contain elements representing the various fields from the wizard.
+The nature extension will be generated with a “builder” element that refers to the generated builder extension.
+(This happens regardless of whether “hasNature” was set to true in the wizard, but the nature need not be applied
+to any project that contains files in the source language, and the builder for the language can be used independently of the nature).
+If the "Add SMAP support" checkbox is checked, then the "addToProject(IProject)" method in the Nature class is augmented to add a
+language-specific SMAPI nature to the given project.
+In the marker extension a marker with id “problem” is defined with super type “org.eclipse.core.resources.problemmarker.”
+(Marker types are maintained as in this way as metadata.)
+<br/><br/>
+
+Problems with the MANIFEST.MF file:<br/><br/>
+On some occasions (that seem to be especially associated with the running of the New Builder wizard),
+you may notice an error in your project's MANIFEST.MF file  that is related to the line "Bundle-SymbolicName: leg; singleton:=true".
+The error message will say something to the effect that the attribute singleton must be true.
+Of course, it has been set to true.  The problem is that different forms of assignment seem to be preferred in different circumstances.
+If you encounter this error, try changing "singleton:=true" to "singleton=true" (or vice versa).
+<br/><br/>
+
+A note on Annotations and Markers
+<br/><br/>
+
+When a SAFARI editor runs, the source text is parsed frequently and error messages are reported as annotations that appear in the editor.
+These annotations are not associated with the source file and do not appear in the "Problems" view.
+When a SAFARI Builder runs, the editor annotations are deleted and a new set of marker annotations are created.
+These annotations also appear in the editor (and may seem identical to pre-build editor annotations).
+However, the marker annotations are associated with the file and do appear in the "Problems" view.
+Building may occur automatically, whenever a file is saved (or a project is cleaned), or building may occur manually,
+only when explicitly invoked by the user.
+Regardless, problem markers will appear when builds occur (provided that there are problems).
+When a file is opened in an editor the problem markers are deleted but the file is parsed immediately and new editor annotations are created. 
+<br/><br/>
+
+</description>
+</item>
+
+
+
+<item title="Create a nature enabler">
+<action pluginId="com.ibm.watson.safari.cheatsheets"
+        class="com.ibm.watson.safari.cheatsheets.actions.NewNatureEnablerAction"/>
+<description>
+Once you have created a builder and corresponding nature for your language,
+you may want to associate the nature with a development project (containing source code in your language)
+in order for the builder to run automatically on the project.
+Eclipse does not make it easy to manually associate a new nature to an existing project,
+so SAFARI provides a "Nature Enabler" wizard that creates a context-menu action that will do this for you automatically.
+<br/><br/>
+
+To invoke the Nature Enabler wizard, select<br/><br/>
+"File" -> "New" -> "IDE Language Support" -> "Core Services" -> "Nature Enabler"<br/><br/>
+
+In the wizard, assure that the names of the project and language are correct and hit finish.
+<br/><br/>
+
+Once the wizard has run, when you right-click on a project in your development workspace,
+you should see a menu item that says "Enable Builder".
+Clicking on that item will associate the langauge nature with the project and enable the builder to run automatically.
+<br/><br/>
+
+Note that, as currently implemented, the menu actions are made available only for Java projects,
+so your development project must be a Java project to take advantage of this feature. 
+	
+<br/><br/>
+
+</description>
+</item>
+
+
+</cheatsheet>
