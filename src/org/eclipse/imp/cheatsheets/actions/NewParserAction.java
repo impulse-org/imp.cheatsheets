@@ -9,7 +9,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.cheatsheets.ICheatSheetAction;
 import org.eclipse.ui.cheatsheets.ICheatSheetManager;
-import org.jikespg.uide.wizards.NewUIDEParserWizard;
+import org.jikespg.uide.wizards.NewLPGGrammarWizard;
 
 public class NewParserAction extends Action implements ICheatSheetAction {
     public NewParserAction() {
@@ -21,7 +21,7 @@ public class NewParserAction extends Action implements ICheatSheetAction {
     }
 
     public void run(String[] params, ICheatSheetManager manager) {
-	NewUIDEParserWizard newParserWizard= new NewUIDEParserWizard();
+	NewLPGGrammarWizard newParserWizard= new NewLPGGrammarWizard();
 	Shell shell= PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
 	WizardDialog wizDialog= new WizardDialog(shell, newParserWizard);
 
