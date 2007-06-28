@@ -41,7 +41,7 @@
 				<pathelement path="${eclipse.build.path}"/>
 			</classpath>
 			<src path="src/"/>
-			</javac>
+		</javac>
 		<!-- Copy necessary resources -->
 		<copy todir="${temp.folder}/${plugin.jar.name}.bin" failonerror="true" overwrite="false">
 			<fileset dir="src/" excludes="**/*.java,**/package.htm*"/>
