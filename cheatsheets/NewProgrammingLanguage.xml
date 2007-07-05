@@ -11,8 +11,9 @@ This is the required first step in SAFARI-IDE creation.
 <b>Notes:</b>
 <br/><br/>
 
-A SAFARI IDE must be created in a plugin project, and
-each SAFARI IDE must be created in a distinct project.
+A SAFARI IDE must be created in a plugin project.  YOU MUST have a plugin project
+selected in the package explorer when you run this wizard or the wizard will not run.
+Also, each SAFARI IDE must be created in a distinct project.
 If you don't have a distinct plugin project for your new IDE then
 you may want to create one before continuing through this cheat sheet.
 <br/><br/>
@@ -39,7 +40,8 @@ class and package a name that matches that of your language.
 <action pluginId="com.ibm.watson.safari.cheatsheets"
         class="com.ibm.watson.safari.cheatsheets.actions.NewLanguageAction"/>
 <description>
-Invoke "File" -&gt; "New" -&gt; "IDE Language Support" -&gt; "Programming Language".
+With a plugin project selected, 
+invoke "File" -&gt; "New" -&gt; "IDE Language Support" -&gt; "Programming Language".
 <br/><br/>
 
 In the "Programming Language" wizard, you must provide information for the following required fields:<br/><br/>
