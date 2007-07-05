@@ -99,14 +99,5 @@
            Creating a bulder for source files in the language of your IDE and adding a utility to facilitate the association of the language nature to development projects
          </description>
       </cheatsheet>
-      <cheatsheet
-         name="J) New Preference Service and Pages"
-         category="com.ibm.safari"
-         id="com.ibm.watson.safari.cheatSheets.preferenceServiceAndPages"
-         contentFile="cheatsheets/NewPreferenceServiceAndPages.xml">
-         <description>
-           Creating a preference service and page for your new SAFARI IDE
-         </description>
-      </cheatsheet>
    </extension>
 </plugin>
