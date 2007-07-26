@@ -5,7 +5,7 @@
 
 	<target name="init" depends="properties">
 		<property name="plugin.name" value="com.ibm.watson.safari.cheatsheets"/>
-		<property name="plugin.version" value="${safari.version}"/>
+		<property name="plugin.version" value="${plugins.version.31}"/>
 		<property name="plugin.jar.name" value="${plugin.name}_${plugin.version}.jar"/>
 		<property name="plugin.zip.name" value="${plugin.name}_${plugin.version}.zip"/>
 		<property name="plugin.src.zip" value="${plugin.name}_src.zip"/>
@@ -35,9 +35,9 @@
 		<javac destdir="${temp.folder}/${plugin.jar.name}.bin" failonerror="${javacFailOnError}" verbose="${javacVerbose}" debug="${javacDebugInfo}" includeAntRuntime="no" bootclasspath="${bootclasspath}" source="${javacSource}" target="${javacTarget}"		>
 			<compilerarg line="${compilerArg}"/>
 			<classpath>
-				<pathelement location="../lpg.runtime.java/lpg.runtime_2.0.4.jar"/>
-				<pathelement location="../org.eclipse.uide/org.eclipse.uide_${safari.version}.jar"/>
-				<pathelement location="../org.jikespg.uide/org.jikespg.uide_${safari.version}.jar"/>
+				<pathelement location="../lpg.runtime.java/bin"/>
+				<pathelement location="../org.eclipse.uide/bin"/>
+				<pathelement location="../org.jikespg.uide/bin"/>
 				<pathelement path="${eclipse.build.path}"/>
 			</classpath>
 			<src path="src/"/>
