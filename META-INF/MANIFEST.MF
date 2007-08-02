@@ -1,14 +1,14 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: SAFARI Cheat Sheets
-Bundle-SymbolicName: com.ibm.watson.safari.cheatsheets; singleton:=true
-Bundle-Version: 1.0.57
-Bundle-Activator: com.ibm.watson.safari.cheatsheets.CheatsheetsPlugin
+Bundle-Name: IMP Cheat Sheets
+Bundle-SymbolicName: org.eclipse.imp.cheatsheets;singleton:=true
+Bundle-Version: 1.0.58
+Bundle-Activator: org.eclipse.imp.cheatsheets.CheatsheetsPlugin
 Bundle-Vendor: rfuhrer@watson.ibm.com
 Bundle-Localization: plugin
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.ui.cheatsheets,
- org.eclipse.uide,
- org.jikespg.uide
+ org.eclipse.imp.metatooling,
+ org.eclipse.imp.lpg.metatooling
 Eclipse-AutoStart: true

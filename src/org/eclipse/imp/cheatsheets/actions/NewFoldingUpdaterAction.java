@@ -1,15 +1,15 @@
 /*
  * Created on Mar 23, 2006
  */
-package com.ibm.watson.safari.cheatsheets.actions;
+package org.eclipse.imp.cheatsheets.actions;
 
+import org.eclipse.imp.wizards.NewFoldingUpdater;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.cheatsheets.ICheatSheetAction;
 import org.eclipse.ui.cheatsheets.ICheatSheetManager;
-import org.eclipse.uide.wizards.NewFoldingUpdater;
 
 public class NewFoldingUpdaterAction extends Action implements ICheatSheetAction {
     public NewFoldingUpdaterAction() {

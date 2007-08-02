@@ -1,4 +1,4 @@
-package com.ibm.watson.safari.cheatsheets;
+package org.eclipse.imp.cheatsheets;
 
 import org.eclipse.ui.plugin.*;
 import org.eclipse.jface.resource.ImageDescriptor;

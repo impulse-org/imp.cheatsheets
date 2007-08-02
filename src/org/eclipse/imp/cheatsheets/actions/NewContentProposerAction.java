@@ -2,15 +2,15 @@
  * Created on 28 Feb 2007
  * 
  */
-package com.ibm.watson.safari.cheatsheets.actions;
+package org.eclipse.imp.cheatsheets.actions;
 
+import org.eclipse.imp.wizards.NewContentProposer;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.cheatsheets.ICheatSheetAction;
 import org.eclipse.ui.cheatsheets.ICheatSheetManager;
-import org.eclipse.uide.wizards.NewContentProposer;
 
 public class NewContentProposerAction extends Action implements ICheatSheetAction {
     public NewContentProposerAction() {
