@@ -2,26 +2,26 @@
 <?eclipse version="3.0"?>
 <plugin>
    <extension
-         id="com.ibm.safari.cheatSheets"
-         name="SAFARI Cheat Sheets"
+         id="org.eclipse.imp.cheatSheets"
+         name="IMP Cheat Sheets"
          point="org.eclipse.ui.cheatsheets.cheatSheetContent">
       <category
-         name="SAFARI"
-         id="com.ibm.safari">
+         name="IMP"
+         id="org.eclipse.imp">
       </category>
       <cheatsheet
          name="A) An Overview"
-         category="com.ibm.safari"
-         id="com.ibm.watson.safari.cheatSheets.overview"
+         category="org.eclipse.imp"
+         id="org.eclipse.imp.cheatSheets.overview"
          contentFile="cheatsheets/AnOverview.xml">
          <description>
-           An overivew of the process of creating a new SAFARI IDE for a particular programming language.
+           An overivew of the process of creating a new IMP IDE for a particular programming language.
          </description>
       </cheatsheet>
       <cheatsheet
-         name="Z) New SAFARI IDE"
-         category="com.ibm.safari"
-         id="com.ibm.watson.safari.cheatSheets.language"
+         name="Z) New IMP IDE"
+         category="org.eclipse.imp"
+         id="org.eclipse.imp.cheatSheets.language"
          contentFile="cheatsheets/NewProgLang.xml">
          <description>
            Creating a new IDE for a programming language.  This cheat sheet provides an overview of the process, including several steps, but it is now somewhat outdated.
@@ -29,26 +29,26 @@
       </cheatsheet>
       <cheatsheet
          name="B) New Programming Language"
-         category="com.ibm.safari"
-         id="com.ibm.watson.safari.cheatSheets.languageDescriptor"
+         category="org.eclipse.imp"
+         id="org.eclipse.imp.cheatSheets.languageDescriptor"
          contentFile="cheatsheets/NewProgrammingLanguage.xml">
          <description>
-           Creating a programming language descriptor for a new SAFARI IDE 
+           Creating a programming language descriptor for a new IMP IDE 
          </description>
       </cheatsheet>
       <cheatsheet
          name="C) New Grammar, Lexer, and Parser"
-         category="com.ibm.safari"
-         id="com.ibm.watson.safari.cheatSheets.grammarLexerParser"
+         category="org.eclipse.imp"
+         id="org.eclipse.imp.cheatSheets.grammarLexerParser"
          contentFile="cheatsheets/NewGrammarAndParser.xml">
          <description>
-           Creating a grammar, lexer, and parser for the language of a new SAFARI IDE 
+           Creating a grammar, lexer, and parser for the language of a new IMP IDE 
          </description>
       </cheatsheet>
       <cheatsheet
          name="D) New Token Colorer"
-         category="com.ibm.safari"
-         id="com.ibm.watson.safari.cheatSheets.tokenColorer"
+         category="org.eclipse.imp"
+         id="org.eclipse.imp.cheatSheets.tokenColorer"
          contentFile="cheatsheets/NewTokenColorer.xml">
          <description>
            Creating a token-coloring service, to color (and otherwise attribute) the text associated with different token types when it appears in the IDE editor
@@ -56,8 +56,8 @@
       </cheatsheet>
       <cheatsheet
          name="E) New Outliner"
-         category="com.ibm.safari"
-         id="com.ibm.watson.safari.cheatSheets.outliner"
+         category="org.eclipse.imp"
+         id="org.eclipse.imp.cheatSheets.outliner"
          contentFile="cheatsheets/NewOutliner.xml">
          <description>
            Creating an outlining service that will provide an outline view of the source text in the IDE editor
@@ -65,8 +65,8 @@
       </cheatsheet>
       <cheatsheet
          name="F) New Folding Updater"
-         category="com.ibm.safari"
-         id="com.ibm.watson.safari.cheatSheets.foldingUpdater"
+         category="org.eclipse.imp"
+         id="org.eclipse.imp.cheatSheets.foldingUpdater"
          contentFile="cheatsheets/NewFoldingUpdater.xml">
          <description>
            Creating an text-folding service that will support folding of source text in the IDE editor
@@ -74,8 +74,8 @@
       </cheatsheet>
       <cheatsheet
          name="G) New Reference Resolver and Hyperlinker"
-         category="com.ibm.safari"
-         id="com.ibm.watson.safari.cheatSheets.referenceResolverAndHyperlinker"
+         category="org.eclipse.imp"
+         id="org.eclipse.imp.cheatSheets.referenceResolverAndHyperlinker"
          contentFile="cheatsheets/NewReferenceResolverAndHyperlinker.xml">
          <description>
            Creating a reference-resolution service that will automatically enable hyperlinking within source text in an IDE editor
@@ -83,8 +83,8 @@
       </cheatsheet>
       <cheatsheet
          name="H) New Content Proposer"
-         category="com.ibm.safari"
-         id="com.ibm.watson.safari.cheatSheets.contentProposer"
+         category="org.eclipse.imp"
+         id="org.eclipse.imp.cheatSheets.contentProposer"
          contentFile="cheatsheets/NewContentProposer.xml">
          <description>
            Creating a content proposal (content assist) service for source text in an IDE editor
@@ -92,8 +92,8 @@
       </cheatsheet>
       <cheatsheet
          name="I) New Builder and Nature Enabler"
-         category="com.ibm.safari"
-         id="com.ibm.watson.safari.cheatSheets.builderAndNatureEnabler"
+         category="org.eclipse.imp"
+         id="org.eclipse.imp.cheatSheets.builderAndNatureEnabler"
          contentFile="cheatsheets/NewBuilderAndNatureEnabler.xml">
          <description>
            Creating a bulder for source files in the language of your IDE and adding a utility to facilitate the association of the language nature to development projects
