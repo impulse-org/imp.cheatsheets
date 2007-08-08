@@ -3,7 +3,7 @@
  */
 package org.eclipse.imp.cheatsheets.actions;
 
-import org.eclipse.imp.lpg.uide.wizards.NewLPGGrammarWithParserWrapperWizard;
+import org.eclipse.imp.lpg.wizards.NewLPGGrammarWithParserWrapperWizard;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.widgets.Shell;
