@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="com.ibm.watson.safari.cheatsheets" default="build.update.jar" basedir=".">
-	<import file="../org.eclipse.safari.feature/buildCommon.xml"/>
-	<import file="../org.eclipse.safari.update/buildPluginCommon.xml"/>
+<project name="org.eclipse.imp.cheatsheets" default="build.update.jar" basedir=".">
+	<import file="../org.eclipse.imp.feature/buildCommon.xml"/>
+	<import file="../org.eclipse.imp.update/buildPluginCommon.xml"/>
 
 	<target name="init" depends="properties">
-		<property name="plugin.name" value="com.ibm.watson.safari.cheatsheets"/>
+		<property name="plugin.name" value="org.eclipse.imp.cheatsheets"/>
 		<property name="plugin.version" value="${plugins.version.31}"/>
 		<property name="plugin.jar.name" value="${plugin.name}_${plugin.version}.jar"/>
 		<property name="plugin.zip.name" value="${plugin.name}_${plugin.version}.zip"/>
@@ -36,8 +36,8 @@
 			<compilerarg line="${compilerArg}"/>
 			<classpath>
 				<pathelement location="../lpg.runtime.java/bin"/>
-				<pathelement location="../org.eclipse.uide/bin"/>
-				<pathelement location="../org.jikespg.uide/bin"/>
+				<pathelement location="../org.eclipse.imp.metatooling/bin"/>
+				<pathelement location="../org.eclipse.imp.lpg.metatooling/bin"/>
 				<pathelement path="${eclipse.build.path}"/>
 			</classpath>
 			<src path="src/"/>
