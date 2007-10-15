@@ -15,8 +15,8 @@ This step must be performed after the grammar and parsing service have been defi
 </intro>
 
 <item title="Create a token colorer">
-<action pluginId="com.ibm.watson.safari.cheatsheets"
-        class="com.ibm.watson.safari.cheatsheets.actions.NewTokenColorerAction"/>
+<action pluginId="org.eclipse.imp.cheatsheets"
+        class="org.eclipse.imp.cheatsheets.actions.NewTokenColorerAction"/>
 <description>
 
 SAFARI provides a wizard to generate a skeleton class for this purpose;

@@ -22,8 +22,8 @@ is available.
 </intro>
 
 <item title="Create a content-assist service">
-<action pluginId="com.ibm.watson.safari.cheatsheets"
-        class="com.ibm.watson.safari.cheatsheets.actions.NewContentProposerAction"/>
+<action pluginId="org.eclipse.imp.cheatsheets"
+        class="org.eclipse.imp.cheatsheets.actions.NewContentProposerAction"/>
 <description>
 
 The SAFARI wizard to generate a content-proposal service is called "NewContentProposer" and is run by invoking<br/><br/>

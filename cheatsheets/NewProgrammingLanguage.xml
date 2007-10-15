@@ -37,8 +37,8 @@ class and package a name that matches that of your language.
 </intro>
 
 <item title="Create a language description">
-<action pluginId="com.ibm.watson.safari.cheatsheets"
-        class="com.ibm.watson.safari.cheatsheets.actions.NewLanguageAction"/>
+<action pluginId="org.eclipse.imp.cheatsheets"
+        class="org.eclipse.imp.cheatsheets.actions.NewLanguageAction"/>
 <description>
 With a plugin project selected, 
 invoke "File" -&gt; "New" -&gt; "IDE Language Support" -&gt; "Programming Language".

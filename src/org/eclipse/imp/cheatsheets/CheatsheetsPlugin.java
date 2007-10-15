@@ -54,6 +54,6 @@ public class CheatsheetsPlugin extends AbstractUIPlugin {
 	 * @return the image descriptor
 	 */
 	public static ImageDescriptor getImageDescriptor(String path) {
-		return AbstractUIPlugin.imageDescriptorFromPlugin("com.ibm.watson.safari.cheatsheets", path);
+		return AbstractUIPlugin.imageDescriptorFromPlugin("org.eclipse.imp.cheatsheets", path);
 	}
 }

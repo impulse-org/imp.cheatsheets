@@ -24,8 +24,8 @@ The JikesPG builder can then automatically generate lexer, parser, and related c
 
 
 <item title="Create a grammar and parser specification">
-<action pluginId="com.ibm.watson.safari.cheatsheets"
-        class="com.ibm.watson.safari.cheatsheets.actions.NewParserAction"/>
+<action pluginId="org.eclipse.imp.cheatsheets"
+        class="org.eclipse.imp.cheatsheets.actions.NewParserAction"/>
 <description>
 
 To run the wizard to generate the grammar skeletons, invoke

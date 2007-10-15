@@ -18,8 +18,8 @@ of other services that depend on reference resolution (such as content assist).
 </intro>
 
 <item title="Create a reference resolver">
-<action pluginId="com.ibm.watson.safari.cheatsheets"
-        class="com.ibm.watson.safari.cheatsheets.actions.NewReferenceResolverAction"/>
+<action pluginId="org.eclipse.imp.cheatsheets"
+        class="org.eclipse.imp.cheatsheets.actions.NewReferenceResolverAction"/>
 <description>
 The SAFARI wizard to generate the reference resolver is called "NewReferenceResolver" and is run by invoking<br/><br/>
 

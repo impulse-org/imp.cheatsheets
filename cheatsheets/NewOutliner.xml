@@ -18,8 +18,8 @@ but it can be performed in any order with respect to the generation of other IDE
 
 
 <item title="Create an outliner">
-<action pluginId="com.ibm.watson.safari.cheatsheets"
-        class="com.ibm.watson.safari.cheatsheets.actions.NewOutlinerAction"/>
+<action pluginId="org.eclipse.imp.cheatsheets"
+        class="org.eclipse.imp.cheatsheets.actions.NewOutlinerAction"/>
 <description>
 To run the New Outliner wizard, invoke<br/><br/>
 "File" -> "New" -> "IDE Language Support" -> "Editor Services" -> "Outliner"

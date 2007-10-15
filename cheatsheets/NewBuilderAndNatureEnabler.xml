@@ -28,8 +28,8 @@ Naturally, the Nature Enabler wizard must be run after the New Builder wizard.
 </intro>
 
 <item title="Create a builder">
-<action pluginId="com.ibm.watson.safari.cheatsheets"
-        class="com.ibm.watson.safari.cheatsheets.actions.NewBuilderAction"/>
+<action pluginId="org.eclipse.imp.cheatsheets"
+        class="org.eclipse.imp.cheatsheets.actions.NewBuilderAction"/>
 <description>
 
 To invoke the NewBuilder wizard, select<br/><br/>  
@@ -139,8 +139,8 @@ When a file is opened in an editor the problem markers are deleted but the file 
 
 
 <item title="Create a nature enabler">
-<action pluginId="com.ibm.watson.safari.cheatsheets"
-        class="com.ibm.watson.safari.cheatsheets.actions.NewNatureEnablerAction"/>
+<action pluginId="org.eclipse.imp.cheatsheets"
+        class="org.eclipse.imp.cheatsheets.actions.NewNatureEnablerAction"/>
 <description>
 Once you have created a builder and corresponding nature for your language,
 you may want to associate the nature with a development project (containing source code in your language)

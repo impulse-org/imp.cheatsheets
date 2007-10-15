@@ -15,8 +15,8 @@ but it can be performed in any order with respect to the generation of other IDE
 </intro>
 
 <item title="Create a folding updater">
-<action pluginId="com.ibm.watson.safari.cheatsheets"
-        class="com.ibm.watson.safari.cheatsheets.actions.NewFoldingUpdaterAction"/>
+<action pluginId="org.eclipse.imp.cheatsheets"
+        class="org.eclipse.imp.cheatsheets.actions.NewFoldingUpdaterAction"/>
 <description>
 
  The SAFARI wizard that does this is called “NewFoldingUpdater.”  To run this wizard, invoke<br/><br/>

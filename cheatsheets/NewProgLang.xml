@@ -53,8 +53,8 @@ class and package a name that matches that of your language.
 </intro>
 
 <item title="Create a language description">
-<action pluginId="com.ibm.watson.safari.cheatsheets"
-        class="com.ibm.watson.safari.cheatsheets.actions.NewLanguageAction"/>
+<action pluginId="org.eclipse.imp.cheatsheets"
+        class="org.eclipse.imp.cheatsheets.actions.NewLanguageAction"/>
 <description>
 Invoke "File" -&gt; "New" -&gt; "IDE Language Support" -&gt; "Programming Language".
 <br/><br/>
@@ -85,8 +85,8 @@ A SAFARI language description extension will be created using the above informat
 
 
 <item title="Create a grammar and lexer specification">
-<action pluginId="com.ibm.watson.safari.cheatsheets"
-        class="com.ibm.watson.safari.cheatsheets.actions.NewParserAction"/>
+<action pluginId="org.eclipse.imp.cheatsheets"
+        class="org.eclipse.imp.cheatsheets.actions.NewParserAction"/>
 <description>
 Invoke "File" -&gt; "New" -&gt; "IDE Language Support" -&gt; "Parser Services" -&gt;
 "JikesPG Grammar and Parser for UIDE".
@@ -125,8 +125,8 @@ the lpg.jar file should be added to your language project's build path.
 
 
 <item title="Create a token colorer">
-<action pluginId="com.ibm.watson.safari.cheatsheets"
-        class="com.ibm.watson.safari.cheatsheets.actions.NewTokenColorerAction"/>
+<action pluginId="org.eclipse.imp.cheatsheets"
+        class="org.eclipse.imp.cheatsheets.actions.NewTokenColorerAction"/>
 <description>
 Invoke "File" -&gt; "New" -&gt; "IDE Language Support" -&gt; "Editor Services" -&gt;
 "Token Colorer".
@@ -153,8 +153,8 @@ and generally start with a prefix like "TK_".
 </item>
 
 <item title="Create an outliner">
-<action pluginId="com.ibm.watson.safari.cheatsheets"
-        class="com.ibm.watson.safari.cheatsheets.actions.NewOutlinerAction"/>
+<action pluginId="org.eclipse.imp.cheatsheets"
+        class="org.eclipse.imp.cheatsheets.actions.NewOutlinerAction"/>
 <description>
 Invoke "File" -&gt; "New" -&gt; "IDE Language Support" -&gt; "Editor Services" -&gt;
 "Outliner".
@@ -182,8 +182,8 @@ parser-generator options--contained as a member class within the generated parse
 
 
 <item title="Enable source-text folding">
-<action pluginId="com.ibm.watson.safari.cheatsheets"
-        class="com.ibm.watson.safari.cheatsheets.actions.NewFoldingUpdaterAction"/>
+<action pluginId="org.eclipse.imp.cheatsheets"
+        class="org.eclipse.imp.cheatsheets.actions.NewFoldingUpdaterAction"/>
 <description>
 Invoke "File" -&gt; "New" -&gt; "IDE Language Support" -&gt; "Editor Services" -&gt;
 "Source folding updater".
@@ -220,8 +220,8 @@ AST node.
 
 
 <item title="Enable hyperlink detection">
-<action pluginId="com.ibm.watson.safari.cheatsheets"
-        class="com.ibm.watson.safari.cheatsheets.actions.NewReferenceResolverAction"/>
+<action pluginId="org.eclipse.imp.cheatsheets"
+        class="org.eclipse.imp.cheatsheets.actions.NewReferenceResolverAction"/>
 <description>
 Invoke "File" -&gt; "New" -&gt; "IDE Language Support" -&gt; "Editor Services" -&gt;
 "Hyperlink Detector".
@@ -261,8 +261,8 @@ Additional comments about these are found in the classes involved.
 
 
 <item title="Create a builder">
-<action pluginId="com.ibm.watson.safari.cheatsheets"
-        class="com.ibm.watson.safari.cheatsheets.actions.NewBuilderAction"/>
+<action pluginId="org.eclipse.imp.cheatsheets"
+        class="org.eclipse.imp.cheatsheets.actions.NewBuilderAction"/>
 <description>
 Invoke "File" -&gt; "New" -&gt; "IDE Language Support" -&gt; "Core Services" -&gt;
 "Incremental Builder".
