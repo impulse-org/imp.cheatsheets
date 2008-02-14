@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<cheatsheet title="Creating a Text-Folding Updater for a new SAFARI IDE">
+<cheatsheet title="Creating a Text-Folding Updater for a new IMP IDE">
 <intro>
 <description>
 The goal of this step is to create a service that supports the folding of hierarchical syntactic elements in text editors for the language.
-As for most SAFARi services, the SAFARI wizard for text folding creates a skeleton class that contains the generic structure to support text
+As for most IMP services, the IMP wizard for text folding creates a skeleton class that contains the generic structure to support text
 folding and this class must be tailored to the specifics of the language being defined.
 <br/><br/>
 
@@ -19,7 +19,7 @@ but it can be performed in any order with respect to the generation of other IDE
         class="org.eclipse.imp.cheatsheets.actions.NewFoldingUpdaterAction"/>
 <description>
 
- The SAFARI wizard that does this is called “NewFoldingUpdater.”  To run this wizard, invoke<br/><br/>
+ The IMP wizard that does this is called “NewFoldingUpdater.”  To run this wizard, invoke<br/><br/>
 
 "File" -> "New" -> "IDE Language Support" -> "Editor Services" -> "Source folding updater"<br/><br/>
 
@@ -27,7 +27,7 @@ As before, in the wizard assure that the names of the project and language are c
 edit the package and class name for the implementation. Hit "Finish" when done.
 <br/><br/>
 
-The NewFoldingUpdater wizard creates a safari.foldingUpdater package containing a FoldingUpdater class.
+The NewFoldingUpdater wizard creates an imp.foldingUpdater package containing a FoldingUpdater class.
 The wizard also adds a folding updater extension to the plugin.xml file for the language project and opens the FoldingUpdater class in an editor.
 <br/><br/>
 

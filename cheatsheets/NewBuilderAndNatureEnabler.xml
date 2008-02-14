@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<cheatsheet title="Creating a Builder and Associated Nature Enabler for a new SAFARI IDE">
+<cheatsheet title="Creating a Builder and Associated Nature Enabler for a new IMP IDE">
 <intro>
 <description>
 The first goal of this step is to create a builder for the language.
@@ -7,16 +7,16 @@ Builders perform activities like generation or compilation for files in a partic
 Builders in Eclipse are associated with projects in a many-to-many relationship.
 When a project is built, the various builders for the project are invoked,
 and each builder performs its respective build action on files in the project that have the appropriate type.
-The SAFARI New Builder wizard generates a Builder class that must be customized to perform the desired language-specific build activity.
+The IMP New Builder wizard generates a Builder class that must be customized to perform the desired language-specific build activity.
 <br/><br/>
 
 The New Builder wizard also generates a nature class that corresponds to the builder.
 Associating a nature to a project is one way to associate builders to a project.
-The association of builders or natures to a project can be done manually, but SAFARI also provides
+The association of builders or natures to a project can be done manually, but IMP also provides
 a Nature Enabler wizard that facilitates this task.
 The Nature Enabler wizard creates a menu item and action for project context menus.
 Once the Nature Enabler wizard has been run, when you right-click on a development project in your
-SAFARI IDE, you can automatically associate the nature for the language to the project
+IMP IDE, you can automatically associate the nature for the language to the project
 and thus enable the automatic building of source files in the language.
 <br/><br/>
 
@@ -48,7 +48,7 @@ In the wizard:<br/><br/>
     * The "name" and "value" fields represent a parameter that may be used to pass external information to the builder.
     The "run" element of the builders schema in org.eclipse.core.resources allows a builder to have some number of parameter
     elements (0 or more); in each parameter element, the name and value are required.
-    As a simplification, the SAFARI NewBuilder wizard provides exactly one parameter element.
+    As a simplification, the IMP NewBuilder wizard provides exactly one parameter element.
     Since the name and value field are required, some values must be filled in here, but these values can be ignored
     by the builder if none are actually needed.  (We expect to make the New Builder wizard more flexible in this regard in the future.)<br/><br/>
     * Finally, if your language has a translation into Java, and you want to use a Java debugger on it,
@@ -57,7 +57,7 @@ In the wizard:<br/><br/>
 The NewBuilder wizard generates one package, two classes, and three plug-in extensions.
 <br/><br/>
 
-The package that is generated is the “safari.builders” package.
+The package that is generated is the “IMP.builders” package.
 It contains the two generated classes, a “Builder” class and a “Nature” class.
 The new extensions are a builder extension (extending org.eclipse.core.resources.builders), a nature extension
 (extending org.eclipse.core.resources.natures), and a problem-marker extension (extending org.eclipse.core.resources.markers).
@@ -67,7 +67,7 @@ The problem marker defines a type of marker annotation that the builder can atta
 encountered when building the files.
 <br/><br/>
 
-The Builder class is a skeleton that overrides or implements several methods defined in its abstract parent class, SAFARIBuilderBase:<br/><br/>
+The Builder class is a skeleton that overrides or implements several methods defined in its abstract parent class, IMPBuilderBase:<br/><br/>
     *  getErrorMarker(..)<br/>
     *  getInfoMarker(..)<br/>
     *  getWarningMarker(..)<br/>
@@ -90,9 +90,9 @@ If your build activity runs in an external process, or uses java.io to create ou
 IResource.refresh() on any folders that contain generated output files (assuming that they are somewhere in your workspace).
 <br/><br/>
 
-SAFARI defines an interface, IMessageHandler (org.eclipse.uide.editor.IMessageHandler), to facilitate the reporting of error
+IMP defines an interface, IMessageHandler (org.eclipse.uide.editor.IMessageHandler), to facilitate the reporting of error
 (and other) messages from compilers (or other builders) to interested services.
-SAFARI also provides an implementation of this interface, MarkerCreator (org.eclipse.uide.builder),
+IMP also provides an implementation of this interface, MarkerCreator (org.eclipse.uide.builder),
 that creates marker annotations for messages received and attaches those to a given source file. 
 <br/><br/>
 
@@ -122,9 +122,9 @@ If you encounter this error, try changing "singleton:=true" to "singleton=true" 
 A note on Annotations and Markers
 <br/><br/>
 
-When a SAFARI editor runs, the source text is parsed frequently and error messages are reported as annotations that appear in the editor.
+When a IMP editor runs, the source text is parsed frequently and error messages are reported as annotations that appear in the editor.
 These annotations are not associated with the source file and do not appear in the "Problems" view.
-When a SAFARI Builder runs, the editor annotations are deleted and a new set of marker annotations are created.
+When a IMP Builder runs, the editor annotations are deleted and a new set of marker annotations are created.
 These annotations also appear in the editor (and may seem identical to pre-build editor annotations).
 However, the marker annotations are associated with the file and do appear in the "Problems" view.
 Building may occur automatically, whenever a file is saved (or a project is cleaned), or building may occur manually,
@@ -146,7 +146,7 @@ Once you have created a builder and corresponding nature for your language,
 you may want to associate the nature with a development project (containing source code in your language)
 in order for the builder to run automatically on the project.
 Eclipse does not make it easy to manually associate a new nature to an existing project,
-so SAFARI provides a "Nature Enabler" wizard that creates a context-menu action that will do this for you automatically.
+so IMP provides a "Nature Enabler" wizard that creates a context-menu action that will do this for you automatically.
 <br/><br/>
 
 To invoke the Nature Enabler wizard, select<br/><br/>

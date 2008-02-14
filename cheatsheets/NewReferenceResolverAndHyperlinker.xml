@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<cheatsheet title="Creating a Reference Resolver and Hyperlinking Service for a new SAFARI IDE">
+<cheatsheet title="Creating a Reference Resolver and Hyperlinking Service for a new IMP IDE">
 <intro>
 <description>
 The goal of this step is to create an implementation for a reference resolution service.
 This service is not apparent to users, but it enables a user-visible hyperlinking service
-(that is implemented by a SAFARI library class and is automatically available once reference reslution
+(that is implemented by a IMP library class and is automatically available once reference reslution
 is supported), and it contributes to the implementation of a user-visible content-assist service.
 <br/><br/>
 
@@ -21,7 +21,7 @@ of other services that depend on reference resolution (such as content assist).
 <action pluginId="org.eclipse.imp.cheatsheets"
         class="org.eclipse.imp.cheatsheets.actions.NewReferenceResolverAction"/>
 <description>
-The SAFARI wizard to generate the reference resolver is called "NewReferenceResolver" and is run by invoking<br/><br/>
+The IMP wizard to generate the reference resolver is called "NewReferenceResolver" and is run by invoking<br/><br/>
 
 "File" -> "New" -> "IDE Language Support" -> "Editor Services" -> "Reference Resolver"<br/><br/>
 
@@ -49,8 +49,8 @@ may need to encode the logic necessary to perform resolution.
 <br/><br/>
 
 Once reference resolution is implemented, hyperlinking is automatically enabled in the language editor.
-The hyperlinking service is implemented by a SAFARI library class and only depends on the ReferenceResolver to become functional.
-Hyperlinking in a SAFARI editor works as it does in an Eclipse JDT Java editor, by control-clicking on a suitable link target.
+The hyperlinking service is implemented by a IMP library class and only depends on the ReferenceResolver to become functional.
+Hyperlinking in a IMP editor works as it does in an Eclipse JDT Java editor, by control-clicking on a suitable link target.
 <br/><br/>
 
 Note:  The as with the NewFoldingUpdater wizard, the NewRererenceResolver wizard needs the name of the package that contains

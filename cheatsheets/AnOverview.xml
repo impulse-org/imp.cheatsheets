@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<cheatsheet title="An Overview of the Steps for Creating a new SAFARI IDE">
+<cheatsheet title="An Overview of the Steps for Creating a new IMP IDE">
 <intro>
 <description>
-This cheat sheet provides an overview of the process of creating a new SAFARI IDE
+This cheat sheet provides an overview of the process of creating a new IMP IDE
 and suggests a reasonable order for pursuing the steps in that process and
-making use of the other cheat sheets found under the "SAFARI" heading.
+making use of the other cheat sheets found under the "IMP" heading.
 <br/><br/>
 
 For several reasons we have not provided a cheat sheet for the entire process
-of creating a SAFARI IDE:  there is only a partial ordering on the steps;
+of creating a IMP IDE:  there is only a partial ordering on the steps;
 not all of the steps may be used for any particular IDE; due to the challenge
 of implementing some services various steps may need to be repeated ad hoc;
 and, due to the delays that may result from implementing various language services,
@@ -17,13 +17,13 @@ the interval between steps may be very large (perhaps spanning multiple Eclipse 
 
 So, instead of a large cheat sheet with several linked steps,	
 in this document we just give some general guidelines about how you might want
-to pursue the SAFARI IDE development process and leave it to you to
+to pursue the IMP IDE development process and leave it to you to
 select the other cheat sheets as they may be of help to you.
 <br/><br/>
 
-To begin, you will need to define your new SAFARI IDE in its own
+To begin, you will need to define your new IMP IDE in its own
 plugin project (this may be a new or existing plugin project, but it must
-not already have been used to define a SAFARI IDE.)
+not already have been used to define a IMP IDE.)
 <br/><br/>
 
 Given a suitable plugin project, the first thing you need to do is create
@@ -32,10 +32,10 @@ This must be done before any of the other steps.
 <br/><br/>
 
 The next thing that must be done is to provide a grammar and a lexing/parsing
-service for the language.  SAFARI provides support for this using LPG, but it
+service for the language.  IMP provides support for this using LPG, but it
 is also possible to use grammars and grammar processors that are developed
-independently of SAFARI, provided they can support the implementation of key
-interfaces.  In any case, since nearly all of the services in a SAFARI IDE
+independently of IMP, provided they can support the implementation of key
+interfaces.  In any case, since nearly all of the services in a IMP IDE
 are dependent on the grammar and/or lexer and parser, this step should be
 performed following the description of the language.
 <br/><br/>
@@ -47,7 +47,7 @@ services that depend on these can be addressed:<br/>
 * Text folding<br/>
 * Reference resolution<br/>
 Implementing reference resolution also gives you hyperlinking for free (as this
-is implemented by a SAFARI library class).
+is implemented by a IMP library class).
 <br/><br/>
 
 Some of the other services, such as Content Proposer, Builder, and Compiler
@@ -64,8 +64,8 @@ runs the parser, then it can be implemented earlier in the process.
 The wizard that creates a new Builder also creates a new Nature class
 for the language.  The nature can be associated to a development project
 to enable the builder to be run automatically for that project.
-As a conenience, SAFARI provides a Nature Enabler wizard that creates
-a context-menu item that allows the SAFARI IDE user to automatically
+As a conenience, IMP provides a Nature Enabler wizard that creates
+a context-menu item that allows the IMP IDE user to automatically
 associate the Nature for the language with a particular development project.
 The Nature Enabler wizard can be run at any time after the New Builder
 wizard is run.
@@ -87,8 +87,8 @@ Don't feel overly bound by this listing; use the sheets in whatever order
 best meets your needs.
 <br/><br/>
 
-You may also see a cheat sheet for "New SAFARI IDE."  This is a relic
-from earlier versions of SAFARI that does support a series of linked
+You may also see a cheat sheet for "New IMP IDE."  This is a relic
+from earlier versions of IMP that does support a series of linked
 steps that represents a typical IDE development process, but note that
 the descriptions of the steps are now somewhat outdated.
 <br/><br/>
@@ -96,7 +96,7 @@ the descriptions of the steps are now somewhat outdated.
 </description>
 </intro>
 
-<item title="Create a SAFARI IDE">
+<item title="Create a IMP IDE">
 <description>
 Please see the respective cheat sheets for the various steps in the process.
 <br/><br/>
