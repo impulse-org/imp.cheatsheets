@@ -2,7 +2,7 @@
 <version pluginID="org.eclipse.imp.cheatsheets"
          versionID="1.0.72">
     <file path="/org.eclipse.imp.cheatsheets/META-INF/MANIFEST.MF"
-          version="1.52"/>
+          version="1.53"/>
     <file path="/org.eclipse.imp.cheatsheets/cheatsheets/AnOverview.xml"
           version="1.2"/>
     <file path="/org.eclipse.imp.cheatsheets/cheatsheets/NewBuilderAndNatureEnabler.xml"
