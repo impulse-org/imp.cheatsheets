@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: IMP Cheat Sheets
+Bundle-Name: IMP Cheat Sheets (Incubation)
 Bundle-SymbolicName: org.eclipse.imp.cheatsheets;singleton:=true
 Bundle-Version: 1.0.72
 Bundle-Activator: org.eclipse.imp.cheatsheets.CheatsheetsPlugin
