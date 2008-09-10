@@ -12,3 +12,4 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.imp.metatooling,
  org.eclipse.imp.lpg.metatooling
 Eclipse-AutoStart: true
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
