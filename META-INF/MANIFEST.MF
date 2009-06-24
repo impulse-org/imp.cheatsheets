@@ -4,12 +4,11 @@ Bundle-Name: IMP Cheat Sheets (Incubation)
 Bundle-SymbolicName: org.eclipse.imp.cheatsheets;singleton:=true
 Bundle-Version: 0.1.82
 Bundle-Activator: org.eclipse.imp.cheatsheets.CheatsheetsPlugin
+Bundle-ActivationPolicy: lazy
 Bundle-Vendor: rfuhrer@watson.ibm.com
-Bundle-Localization: plugin
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.ui.cheatsheets,
  org.eclipse.imp.metatooling,
  org.eclipse.imp.lpg.metatooling
-Eclipse-AutoStart: true
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
