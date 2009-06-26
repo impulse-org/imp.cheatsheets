@@ -5,6 +5,7 @@ Bundle-SymbolicName: org.eclipse.imp.cheatsheets;singleton:=true
 Bundle-Version: 0.1.82
 Bundle-Activator: org.eclipse.imp.cheatsheets.CheatsheetsPlugin
 Bundle-ActivationPolicy: lazy
+Eclipse-LazyStart: true
 Bundle-Vendor: rfuhrer@watson.ibm.com
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
